@@ -1,0 +1,137 @@
+
+<html>
+<head>
+	<title>Homepage </title> 
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<style>
+
+body {	background-color: #141414;
+ 	 background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEyMCc+Cgk8ZGVmcz4KCQk8cGF0dGVybiBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nYycgd2lkdGg9JzYwJyBoZWlnaHQ9JzEyMCcgeD0nMCcgeT0nMCcgdmlld0JveD0nMCAwIDUgMTAnPgoJCQk8cGF0aCBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nIzI5MjkyOScgc3Ryb2tlLXdpZHRoPScwLjA5JyBkPSdNLTIsMUw3LDEwTS0yLDZMNywxNU0tMiwtNEw3LDUnLz4KCQk8L3BhdHRlcm4+CgkJPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgaWQ9J2MyJyB3aWR0aD0nNjAnIGhlaWdodD0nMTIwJyB4PScxMDAlJyB5PScwJyB2aWV3Qm94PScwIDAgNSAxMCc+CgkJCTxwYXRoIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMjkyOTI5JyBzdHJva2Utd2lkdGg9JzAuMDknIGQ9J003LDFMLTIsMTBNNyw2TC0yLDE1TTcsLTRMLTIsNScvPgoJCTwvcGF0dGVybj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPSc1MCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNjKScvPgoJPHJlY3QgeD0nNTAlJyB3aWR0aD0nNTAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J3VybCgjYzIpJy8+Cjwvc3ZnPg==');
+	padding-left: 15px;
+	padding-right: 15px;
+}
+data { color: #C25100;}
+ 
+h1 {
+	color: #C25100;
+    	font-family: 'Lobster', cursive;
+  	padding: 60px;
+  	text-align:center;
+	font-size: 100px
+}
+
+h2 {	
+	color: #c27100;
+	font-family: 'Lobster', cursive;
+  	padding-bottom: 20px;
+	padding-top: 20px;
+	font-size: 40px;
+  	text-align: center;
+	
+}
+
+
+textarea { 
+	width: 100%;
+	padding : 20px;
+	font-size: 30px;
+        font-family: 'Caveat', cursive;
+	border: 2px solid green
+	margins: auto;
+}
+
+p {	color: white;
+  	padding-bottom: 20px;
+	font-size: 40px;
+  	text-align: center;
+	
+}
+.intro{ color: white;
+	font-family: 'Jost', sans-serif;
+   	font-size: 2.4em;
+    	font-weight: 300;
+    	line-height: 1.5;
+}
+input { background-color: #4CAF50;
+ 	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+ 	font-size: 16px;
+  	margin: 4px 2px;
+  	cursor: pointer;
+}
+
+.recomm{ color: white;
+	font-family: 'Jost', sans-serif;
+   	font-size: 2.4em;
+    	font-weight: 300;
+    	line-height: 1.5;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.footer{
+        left: 0;
+   	bottom: 0;
+   	color: white;
+   	text-align: center;
+	clear: both;
+	font-size: 15px;
+}
+
+
+
+</style> 
+
+</head>
+
+<body>
+<div class="header">
+    <h1>Welcome to our project</h1>
+  </div>
+
+<div class="intro">
+<P> Do you want to read something for fun &#x1F604;? We can provide some recommendations based on your input.</p><br/>
+ </div>
+<h2>Tell us how do you feel today?</h2><br/>
+<form action="" method="POST">
+{% csrf_token %}
+<textarea cols="25" rows="4" name="content" placeholder=" type in your thoughts here" >
+</textarea><br/>
+<input type="submit" value="submit"/>
+<br/>
+
+<h2>Recommendation article</h2><br/>
+<div class="recomm">
+<b>User input:</b>&nbsp;{{input}}<br/>
+**************************<br/>
+The input is classified as<br/>
+<b>Model 1:</b>&nbsp;{{model1}}<br/>
+<b>Model 2:</b>&nbsp;{{model2}}<br/>
+*************************<br/>
+<b>Title:</b> &emsp;&emsp;&emsp;{{title}}<br/>
+<b>Description: </b>{{description}}<br/>
+<b>Source:   &emsp;&ensp;&nbsp;  </b>{{source}}<br/>
+<b>Link:     &emsp;&emsp;&emsp;   </b><a href="{{link}}">Visit the news webpage here</a><br/>
+
+</div>
+</form>
+
+
+<div class="footer">
+  &copy;2020 This project was produced by students in the Faculty of Science and Technology, University of Canberra
+</div>
+
+
+
+
+</body>
+
+</html>
