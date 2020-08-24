@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from home.PredictRecommend import *
-
-
-
+from .forms import UserRegistrationForm
+from django.http import HttpResponseRedirect
 from .models import Post, Recommendation
+
+
 def createpost(request):
         
         if request.method == 'POST':
@@ -19,4 +20,13 @@ def createpost(request):
                 
                 return render(request,'posts/recommend.html',)
 
+ 
 
+def register(request):
+    form = UserRegistrationForm()
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    return render(request, 'posts/userregister.html', {'form': form})
