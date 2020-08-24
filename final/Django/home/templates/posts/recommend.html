@@ -97,8 +97,17 @@ input { background-color: #4CAF50;
     <h1>Welcome to our project</h1>
   </div>
 
+  <div class="col-sm-1">
+	{% if user.username %}
+		<p>Hello {{user.username}}</p>
+		<p><a href= "{%url 'logout' %}">logout</a></p>
+	{% else %}
+		<p><a href=" {%url 'register' %}">register</a>|<a href="{%url 'login' %}">login</a></p>
+	{% endif %}
+</div>
+
 <div class="intro">
-<P> Do you want to read something for fun &#x1F604;? We can provide some recommendations based on your input.</p><br/>
+<P> <br>Do you want to read something for fun &#x1F604;? We can provide some recommendations based on your input.</p><br/>
  </div>
 <h2>Tell us how do you feel today?</h2><br/>
 <form action="" method="POST">
