@@ -61,3 +61,21 @@ class Sentiment:
         self.category = recommendation_article[3]
         self.source = recommendation_article[4]
         self.link = recommendation_article[5]
+
+class SentimentOverwrite:
+
+    def __init__(self, class1, class2):
+        self.class_model1 = Model1(class1)
+        self.class_model2 = Model2(class2)
+
+        self.tag_model1 = self.class_model1.tag
+        self.tag_model2 = self.class_model2.tag
+
+        recommendation_article = get_recommendation(self.class_model1.modelclass, self.class_model2.modelclass, const.path, const.filename_article_recommendation, const.filename_article_database)
+
+        self.title = recommendation_article[0]
+        self.description = recommendation_article[1]
+        self.author = recommendation_article[2]
+        self.category = recommendation_article[3]
+        self.source = recommendation_article[4]
+        self.link = recommendation_article[5]
