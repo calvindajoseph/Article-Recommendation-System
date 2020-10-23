@@ -11,6 +11,7 @@ from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.model_selection import GridSearchCV
 
@@ -27,6 +28,47 @@ remove = ['footers','quotes']
 
 const = Global()
 
+def import_csv_to_Dataframe(path, filename):
+    path = path + '\\' + filename
+    df = pd.read_csv(path)
+    print('Dataframe imported from ' + path)
+    return df
+
+def export_Dataframe_to_csv(df, path, filename):
+    path = path + '\\' + filename
+    df.to_csv(path, index=False)
+
+    #print('Dataframe exported to ' + path)
+    return 0
+
+#####################################################################################
+#Pre-process dataset
+#####################################################################################
+
+def huffingtonpost_data_preprocessing(df):
+
+    df.drop(columns=['ArticleId'], inplace=True)
+    df.dropna(subset=['Text'], inplace=True)
+    df.dropna(subset=['Category'], inplace=True)
+
+    df['target'] = pd.factorize(df['Category'])[0] + 20
+
+    df['Category'] = [s.capitalize() for s in df['Category']]
+    df['Category'] = df['Category'].replace({"Politics": "talk.politics.misc"})
+    df['target'] = df['target'].replace({
+        22: 18,
+        23: 22
+    })
+
+    df_classes = pd.DataFrame(data={'no': df.target.unique(), 'class_category': df.Category.unique()})
+    df_classes = df_classes[df_classes.class_category != "talk.politics.misc"]
+    df.drop(columns=['Category'], inplace=True)
+    export_Dataframe_to_csv(df_classes, const.path, 'bbc_dataset_class.csv')
+    return df, df_classes
+
+df = import_csv_to_Dataframe(const.path, 'BBC_News.csv')
+df,df_classes = huffingtonpost_data_preprocessing(df)
+
 #####################################################################################
 #Set up the datasets and feature extraction
 #####################################################################################
@@ -38,23 +80,25 @@ newsgroup_test = fetch_20newsgroups(subset='test',
                                     shuffle=shuffle,
                                     remove=remove)
 
-def import_csv_to_Dataframe(path, filename):
-    path = path + '\\' + filename
-    df = pd.read_csv(path)
-    print('Dataframe imported from ' + path)
-    return df
+X = df['Text'].to_numpy()
+y = df['target'].to_numpy()
 
-df_newdataset = import_csv_to_Dataframe(const.path, const.filename_newdataset)
+X_train_huffington, X_test_huffington, y_train_huffington, y_test_huffington = train_test_split(
+    X, y, test_size=0.33, random_state=42, stratify=y)
+
+
 
 X_train_text = newsgroup_train.data
-X_train_text = X_train_text + (df_newdataset['Sentence'].tolist())
+X_train_text = X_train_text + (X_train_huffington.tolist())
 
 y_train_text = newsgroup_train.target
-y_train_text = np.concatenate((y_train_text, df_newdataset['Model_2'].to_numpy()))
+y_train_text = np.concatenate((y_train_text, y_train_huffington))
+
+X_test_text = newsgroup_test.data + X_test_huffington.tolist()
 
 X_train = vectorizer.fit_transform(X_train_text)
 y_train = y_train_text
-X_test = vectorizer.transform(newsgroup_test.data)
+X_test = vectorizer.transform(X_test_text)
 
 #####################################################################################
 #Functions to start the training and produce the model
@@ -103,9 +147,11 @@ def write_model_classification(text_clf, file):
     file.write("Test time:  %0.3fs\n" % test_time)
     file.write("\n")
 
+    y_test_text = np.concatenate((newsgroup_test.target, y_test_huffington))
+
     file.write("Classification Report:\n")
-    file.write(metrics.classification_report(newsgroup_test.target, test_pred,
-                                             target_names=newsgroup_test.target_names))
+    file.write(metrics.classification_report(y_test_text, test_pred,
+                                             target_names=newsgroup_test.target_names + df_classes['class_category'].tolist()))
     file.write("\n")
 
 def write_top_10_keywords(text_clf, vectorizer, categories, file):
@@ -119,7 +165,7 @@ def write_top_10_keywords(text_clf, vectorizer, categories, file):
 def write_to_file(path, filename_model2_logs):
     file = open((path + '\\' + filename_model2_logs), 'w')
     write_model_classification(model2, file)
-    write_top_10_keywords(model2,vectorizer, newsgroup_train.target_names, file)
+    write_top_10_keywords(model2,vectorizer, newsgroup_test.target_names + df_classes['class_category'].tolist(), file)
     file.close()
 
 #####################################################################################
@@ -157,13 +203,6 @@ def set_recommendation_Dataframe_model2(df):
                        ignore_index=True)
     return df
 
-def export_Dataframe_to_csv(df, path, filename):
-    path = path + '\\' + filename
-    df.to_csv(path, index=False)
-
-    #print('Dataframe exported to ' + path)
-    return 0
-
 def process_Dataframe(df, path, filename):
     df = set_recommendation_Dataframe_model2(df)
     export_Dataframe_to_csv(df, path, filename)
@@ -173,8 +212,8 @@ def process_Dataframe(df, path, filename):
 #####################################################################################
 
 def main():
-    write_to_file(const.path,const.filename_model2_added_logs)
-    store_model2_and_vectorizer(model2,vectorizer,const.path,const.filename_model2_added,const.filename_vectorizer_model2_added)
-    process_Dataframe(df_recommendation_article_by_model2, const.path, const.filename_model2_class_dataframe_added)
+    write_to_file(const.path,'model2_log_bbc.txt')
+    store_model2_and_vectorizer(model2,vectorizer,const.path,const.filename_model2_bbc,const.filename_vectorizer_model2_bbc)
+    process_Dataframe(df_recommendation_article_by_model2, const.path, 'bbc_dataset.csv')
 
 main()
