@@ -14,7 +14,7 @@
     <title>Login page</title>
 </head>
 <style>
-p {
+p,.pass {
     color:white;
 	font-family: 'Jost', sans-serif;
    	font-size: 30px;
@@ -43,7 +43,7 @@ input[type=submit] { background-color: #4CAF50;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
- 	font-size: 16px;
+ 	font-size: 30px;
      margin: 5px 0 22px 0;
   	cursor: pointer;
     width: 95%;
@@ -63,11 +63,19 @@ h1 {
 
 h3 {	
 	color: black;
-	font-family: 'Lobster', cursive;
-  	padding-bottom: 20px;
-	padding-top: 20px;
-	font-size: 40px;
-  	text-align: center;
+      font-family: 'Jost', sans-serif;
+        padding: 20px;
+      font-size: 40px;
+        text-align: center;
+      border-style: groove;
+      border-color: dimgray;
+      background-color: dimgray;
+      font-weight: 900;
+      text-align:center;
+      width: 98%;
+    padding: 25px;
+    margin: 5px 0 22px 0;
+      
 	
 }
 input[type=text], [type=password]{
@@ -112,6 +120,8 @@ input[type=text], [type=password]{
                 </div>
                 
             </form>
+            <center><a class="pass" href="{% url 'password_reset' %}">I have forgotten my password</a></center><br>
         </div>
+        
 </body>
 </html>

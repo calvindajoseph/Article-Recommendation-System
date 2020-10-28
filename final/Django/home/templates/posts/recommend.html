@@ -10,29 +10,41 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <style>
 
-body {	background-color: #141414;
- 	 background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEyMCc+Cgk8ZGVmcz4KCQk8cGF0dGVybiBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nYycgd2lkdGg9JzYwJyBoZWlnaHQ9JzEyMCcgeD0nMCcgeT0nMCcgdmlld0JveD0nMCAwIDUgMTAnPgoJCQk8cGF0aCBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nIzI5MjkyOScgc3Ryb2tlLXdpZHRoPScwLjA5JyBkPSdNLTIsMUw3LDEwTS0yLDZMNywxNU0tMiwtNEw3LDUnLz4KCQk8L3BhdHRlcm4+CgkJPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgaWQ9J2MyJyB3aWR0aD0nNjAnIGhlaWdodD0nMTIwJyB4PScxMDAlJyB5PScwJyB2aWV3Qm94PScwIDAgNSAxMCc+CgkJCTxwYXRoIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMjkyOTI5JyBzdHJva2Utd2lkdGg9JzAuMDknIGQ9J003LDFMLTIsMTBNNyw2TC0yLDE1TTcsLTRMLTIsNScvPgoJCTwvcGF0dGVybj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPSc1MCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNjKScvPgoJPHJlY3QgeD0nNTAlJyB3aWR0aD0nNTAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J3VybCgjYzIpJy8+Cjwvc3ZnPg==');
-	padding-left: 15px;
-	padding-right: 15px;
-}
+
+
+
 data { color: #C25100;}
  
 h1 {
 	color: #C25100;
-    	font-family: 'Lobster', cursive;
+    font-family: 'Lobster', cursive;
   	padding: 60px;
   	text-align:center;
 	font-size: 100px
 }
 
 h2 {	
-	color: #c27100;
-	font-family: 'Lobster', cursive;
-  	padding-bottom: 20px;
-	padding-top: 20px;
-	font-size: 40px;
-  	text-align: center;
+	color: black;
+      font-family: 'Jost', sans-serif;
+        padding-bottom: 20px;
+      padding-top: 20px;
+      font-size: 40px;
+        text-align: center;
+      border-style: groove;
+      border-color: dimgray;
+      background-color: dimgray;
+      font-weight: 900;
 	
+}
+
+h3 {color: white;
+   	font-size: 40px;
+	   text-decoration: underline;
+}
+
+
+option{
+	color: black;
 }
 
 
@@ -41,9 +53,21 @@ textarea {
 	padding : 20px;
 	font-size: 30px;
     font-family: 'Caveat', cursive;
-	border: 2px solid green
-    margin: auto;
+	border: 2px solid green;
+   
 }
+.register,.login,.logout {background-color: #4CAF50;
+ 	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+ 	font-size: 30px;
+  	margin: 4px 2px;
+  	cursor: pointer;
+	}
+
 
 p {	color: white;
   	padding-bottom: 20px;
@@ -64,18 +88,25 @@ input { background-color: #4CAF50;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
- 	font-size: 16px;
+ 	font-size: 30px;
   	margin: 4px 2px;
   	cursor: pointer;
 }
 
-.recomm{ color: white;
+.recomm,.newrecomm,.rating{ color: white;
 	font-family: 'Jost', sans-serif;
    	font-size: 2.4em;
     	font-weight: 300;
     	line-height: 1.5;
-	padding-left: 20px;
-	padding-bottom: 20px;
+	
+}
+
+.userchoice{ color: white;
+	font-family: 'Jost', sans-serif;
+   	font-size: 2.4em;
+    	font-weight: 300;
+    	line-height: 1.5;
+	
 }
 
 .footer{
@@ -95,14 +126,25 @@ input { background-color: #4CAF50;
     	line-height: 1.5;
 		position:absolute;
   	 top:0;
-   `right:0;
-}
+     right:0;
 
+}
+body {	background-color: #141414;
+ 	 background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEyMCc+Cgk8ZGVmcz4KCQk8cGF0dGVybiBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nYycgd2lkdGg9JzYwJyBoZWlnaHQ9JzEyMCcgeD0nMCcgeT0nMCcgdmlld0JveD0nMCAwIDUgMTAnPgoJCQk8cGF0aCBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nIzI5MjkyOScgc3Ryb2tlLXdpZHRoPScwLjA5JyBkPSdNLTIsMUw3LDEwTS0yLDZMNywxNU0tMiwtNEw3LDUnLz4KCQk8L3BhdHRlcm4+CgkJPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgaWQ9J2MyJyB3aWR0aD0nNjAnIGhlaWdodD0nMTIwJyB4PScxMDAlJyB5PScwJyB2aWV3Qm94PScwIDAgNSAxMCc+CgkJCTxwYXRoIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMjkyOTI5JyBzdHJva2Utd2lkdGg9JzAuMDknIGQ9J003LDFMLTIsMTBNNyw2TC0yLDE1TTcsLTRMLTIsNScvPgoJCTwvcGF0dGVybj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPSc1MCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNjKScvPgoJPHJlY3QgeD0nNTAlJyB3aWR0aD0nNTAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J3VybCgjYzIpJy8+Cjwvc3ZnPg==');
+	padding-left: 15px;
+	padding-right: 15px;
+	
+ 	 margin: auto;}
+
+select{
+	color:black;
+}
 </style> 
 
 </head>
 
 <body>
+<div class ="content">
 <div class="header">
     <h1>AI senses human emotions</h1>
   </div>
@@ -110,9 +152,9 @@ input { background-color: #4CAF50;
   <div class="col-sm-1">
 	{% if user.username %}
 		<p>Hello {{user.username}}</p>
-		<p><a href= "{%url 'logout' %}">logout</a></p>
+		<p><a class="register" href= "{%url 'logout' %}">logout</a></p>
 	{% else %}
-		<p><a href=" {%url 'register' %}">register</a>|<a href="{%url 'login' %}">login</a></p>
+		<p><a class="register" href=" {%url 'register' %}">register</a><a class="login" href="{%url 'login' %}">login</a></p>
 	{% endif %}
 </div>
 
@@ -127,21 +169,99 @@ input { background-color: #4CAF50;
 <input type="submit" value="submit"/>
 <br/>
 
-<h2>Recommendation article</h2><br/>
+<h2>Classification results</h2><br/>
 <div class="recomm">
+	
 <b>User input:</b>&nbsp;{{input}}<br/>
+<b>User name:</b>&nbsp;{{user}}<br/>
 **************************<br/>
 The input is classified as<br/>
 <b>Model 1:</b>&nbsp;{{model1}}<br/>
 <b>Model 2:</b>&nbsp;{{model2}}<br/>
 *************************<br/>
-<b>Title:</b> &emsp;&emsp;&emsp;{{title}}<br/>
-<b>Description: </b>{{description}}<br/>
-<b>Source:   &emsp;&ensp;&nbsp;  </b>{{source}}<br/>
-<b>Link:     &emsp;&emsp;&emsp;   </b><a href="{{link}}">Visit the news webpage here</a><br/>
+<h3>Recommendation article</h3><br/>
+	<b>Title:</b> &emsp;&emsp;&emsp;{{title}}<br/>
+	<b>Description: </b>{{description}}<br/>
+	<b>Source:   &emsp;&ensp;&nbsp;  </b>{{source}}<br/>
+	<b>Link:     &emsp;&emsp;&emsp;   </b><a href="{{link}}">Visit the news webpage here</a><br/>
 
 </div>
+
 </form>
+
+<div class="userchoice">
+	<form action="/analysis1" id="userchoice" method="GET">
+		<h2>Data gathering system</h2>
+		<label for="sentiment">Choose the correct sentiment:</label>
+		<select form="userchoice" name="sentimentSelect" id="sentimentSelect" required>
+			<option value=""></option>
+			<option value="0">Negative</option>
+			<option value="4">Positive</option>
+			
+		</select>
+		<br>
+		<label for="category">Choose the correct category:</label>
+		<select form ="userchoice" id ="categories" name="categories" required>
+			<option value=""></option>
+			<option value="0">Religion: Atheism</option>
+			<option value="15">Religion: Christian</option>
+			<option value="19">Religion: Miscellaneous</option>
+			<option value="1">Computer: Graphics</option>
+			<option value="2">Computer: Windows</option>
+			<option value="3">Computer: IBM PC Hardware</option>
+			<option value="4">Computer: Apple Hardware</option>
+			<option value="5">Computer: Windows X</option>
+			<option value="6">Miscellaneous: For-Sale</option>
+			<option value="7">Recreation: Automotives</option>
+			<option value="8">Recreation: Motorcycles</option>
+			<option value="9">Sports: Baseball</option>
+			<option value="10">Sports: Hockey</option>
+			<option value="11">Science: Cryptography</option>
+			<option value="12">Science: Electronics</option>
+			<option value="13">Science: Medical</option>
+			<option value="14">Science: Space</option>
+			<option value="16">Politics: Guns</option>
+			<option value="17">Politics: Middle East</option>
+			<option value="18">Politics: Miscellaneous</option>
+		  </select>
+		  <input class="button" type="submit" value="submit"><br/>
+	</form>
+</div>
+
+
+<div class="newrecomm">
+	
+	<h3>New recommendation article</h3>
+		 <b>new sentiment:</b>{{senti}} <br/>
+		 <b>new classification:</b>{{cate}} <br/>
+		 <b>Title:</b> &emsp;&emsp;&emsp;{{newtitle}}<br/>
+		 <b>Description: </b>{{newdescription}}<br/>
+		 <b>Source:   &emsp;&ensp;&nbsp;  </b>{{newsource}}<br/>
+		 <b>Link:     &emsp;&emsp;&emsp;   </b><a href="{{newlink}}">Visit the news webpage here</a><br/>
+</div>
+
+<div class="rating">
+	<form action="/analysis2" id="userchoice1" method="GET">
+
+	<label for="sentiment">How do you feel about the recommendation article:</label>
+	<select form="userchoice1" name="rating" id="rating" required>
+		<option value=""></option>
+		<option value="1">HAPPY</option>
+		<option value="0">NOT HAPPY</option>	 
+	</select>
+	<input class="button" type="submit" value="submit">
+	</form>
+	<h3>Thank you very much for your rating.</h2>
+	
+	{% if rating == 1 %}
+	We will recommend similar article in the future.
+	{% elif rating == 0 %}
+	we will make sure to not recommend this to you again.
+	
+	{% endif %}
+
+</div>
+
 
 
 <div class="footer">
@@ -149,7 +269,7 @@ The input is classified as<br/>
 </div>
 
 
-
+</div>
 
 </body>
 

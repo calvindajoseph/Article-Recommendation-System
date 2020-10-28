@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: abc@gmail.com
+Date: Tue, 27 Oct 2020 21:13:12 -0000
+Message-ID: <160383319251.28248.12173713049193440170@MSI>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/OA/acg1i0-52c3b060bbbc42e0ccd5945898bb2305/
+
+Your username, in case you’ve forgotten: abc4
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
