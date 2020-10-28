@@ -1,0 +1,59 @@
+Model name:	Linear SVC
+
+Model specification:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+          multi_class='ovr', penalty='l2', random_state=None, tol=0.001,
+          verbose=0)
+Train time: 3.093s
+Test time:  0.012s
+
+Classification Report:
+                          precision    recall  f1-score   support
+
+             alt.atheism       0.76      0.72      0.74       319
+           comp.graphics       0.74      0.80      0.77       389
+ comp.os.ms-windows.misc       0.74      0.73      0.74       394
+comp.sys.ibm.pc.hardware       0.72      0.73      0.72       392
+   comp.sys.mac.hardware       0.80      0.85      0.82       385
+          comp.windows.x       0.88      0.76      0.82       395
+            misc.forsale       0.81      0.88      0.84       390
+               rec.autos       0.86      0.85      0.85       396
+         rec.motorcycles       0.89      0.93      0.91       398
+      rec.sport.baseball       0.86      0.88      0.87       397
+        rec.sport.hockey       0.92      0.94      0.93       399
+               sci.crypt       0.94      0.91      0.92       396
+         sci.electronics       0.73      0.72      0.73       393
+                 sci.med       0.89      0.82      0.85       396
+               sci.space       0.86      0.91      0.88       394
+  soc.religion.christian       0.78      0.88      0.83       398
+      talk.politics.guns       0.73      0.87      0.79       364
+   talk.politics.mideast       0.94      0.87      0.90       376
+      talk.politics.misc       0.76      0.59      0.66       310
+      talk.religion.misc       0.65      0.54      0.59       251
+
+                accuracy                           0.82      7532
+               macro avg       0.81      0.81      0.81      7532
+            weighted avg       0.82      0.82      0.82      7532
+
+Top 10 keyword per class:
+alt.atheism:		 bobby cobb thoughts wingate keith islamic atheist rushdie atheism atheists
+comp.graphics:		 nvidia photoshop images cview tiff pov 3do image 3d graphics
+comp.os.ms-windows.misc:		 bmp win driver microsoft risc nt ini win3 cica windows
+comp.sys.ibm.pc.hardware:		 vlb monitors controller monitor isa pc bios ibm gateway ide
+comp.sys.mac.hardware:		 iisi iphone lc centris macbook duo powerbook quadra apple mac
+comp.windows.x:		 x11 xfree86 xlib lcs window xterm server x11r5 widget motif
+misc.forsale:		 camera interested asking condition shipping offer sell wanted forsale sale
+rec.autos:		 oil tesla toyota nissan dumbest vw automotive cars warning car
+rec.motorcycles:		 ride kawasaki helmet riding harley motorcycles motorcycle dod bikes bike
+rec.sport.baseball:		 dodgers uniforms stadium royals giants cubs tigers sox phillies baseball
+rec.sport.hockey:		 ice pittsburgh goalie playoffs pens leafs espn playoff nhl hockey
+sci.crypt:		 pgp crypto nsa security cryptography key blockchain encryption tapped clipper
+sci.electronics:		 line cooling adcom rf exploding 256k tv 8051 electronics circuit
+sci.med:		 diet seizures treatment cancer homeopathy coronavirus disease photography doctor msg
+sci.space:		 spacecraft mars shuttle dc sci launch sky moon orbit space
+soc.religion.christian:		 scripture christ christianity easter hell accepting sin arrogance church christians
+talk.politics.guns:		 batf fbi shooting hunting weapons atf waco firearms guns gun
+talk.politics.mideast:		 argic armenia turkish arab armenians armenian hezbollah middle israeli israel
+talk.politics.misc:		 neighbor drugs hypocrisy sexual trump concentrate kaldis tax gay clinton
+talk.religion.misc:		 2000 hudson order lds 666 christian rosicrucian promise biblical morality

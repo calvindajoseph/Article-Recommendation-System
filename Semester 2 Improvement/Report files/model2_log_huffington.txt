@@ -1,0 +1,111 @@
+Model name:	Linear SVC
+
+Model specification:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+          multi_class='ovr', penalty='l2', random_state=None, tol=0.001,
+          verbose=0)
+Train time: 66.017s
+Test time:  0.110s
+
+Classification Report:
+                          precision    recall  f1-score   support
+
+             alt.atheism       0.79      0.68      0.73       319
+           comp.graphics       0.72      0.78      0.75       389
+ comp.os.ms-windows.misc       0.73      0.69      0.71       394
+comp.sys.ibm.pc.hardware       0.73      0.72      0.72       392
+   comp.sys.mac.hardware       0.81      0.83      0.82       385
+          comp.windows.x       0.87      0.76      0.81       395
+            misc.forsale       0.79      0.82      0.81       390
+               rec.autos       0.83      0.84      0.83       396
+         rec.motorcycles       0.87      0.90      0.89       398
+      rec.sport.baseball       0.83      0.84      0.84       397
+        rec.sport.hockey       0.89      0.92      0.91       399
+               sci.crypt       0.93      0.89      0.91       396
+         sci.electronics       0.75      0.70      0.72       393
+                 sci.med       0.82      0.61      0.70       396
+               sci.space       0.85      0.85      0.85       394
+  soc.religion.christian       0.79      0.83      0.81       398
+      talk.politics.guns       0.71      0.85      0.78       364
+   talk.politics.mideast       0.94      0.82      0.88       376
+      talk.politics.misc       0.77      0.52      0.62       310
+      talk.religion.misc       0.65      0.55      0.60       251
+                   Crime       0.33      0.61      0.43       262
+           Entertainment       0.00      0.00      0.00         0
+              World news       0.33      0.76      0.46       648
+                  Impact       0.26      0.23      0.24       266
+                Politics       0.97      0.56      0.71     10756
+              Weird news       0.28      0.24      0.26       206
+           Groups voices       0.42      0.65      0.51       922
+                   Women       0.28      0.39      0.33       269
+                  Comedy       0.40      0.48      0.44       399
+                  Sports       0.60      0.70      0.65       376
+     Business & finances       0.32      0.58      0.41       588
+                  Travel       0.67      0.78      0.72       761
+                   Media       0.24      0.51      0.33       217
+          Science & tech       0.43      0.44      0.43       328
+                Religion       0.38      0.53      0.45       197
+               Education       0.27      0.44      0.34       165
+               Parenting       0.63      0.70      0.66       973
+          Arts & culture       0.54      0.53      0.54       298
+          Style & beauty       0.79      0.84      0.81       917
+             Environment       0.34      0.58      0.43       304
+            Food & drink       0.78      0.78      0.78       641
+                Wellness       0.00      0.00      0.00         0
+           Miscellaneous       0.39      0.21      0.28       215
+           Home & living       0.70      0.76      0.73       323
+                 Divorce       0.80      0.74      0.77       264
+                Weddings       0.76      0.79      0.77       281
+
+                accuracy                           0.65     28108
+               macro avg       0.61      0.64      0.61     28108
+            weighted avg       0.77      0.65      0.68     28108
+
+Top 10 keyword per class:
+alt.atheism:		 bobby lines okcforum ingles keith charley wingate atheists rushdie atheism
+comp.graphics:		 mpeg xv sphere rumours polygon tiff pov cview 3do graphics
+comp.os.ms-windows.misc:		 driver w4wg winqvt bmp risc nt win3 ini cica windows
+comp.sys.ibm.pc.hardware:		 486 scsi monitors vlb controller pc isa gateway bios ide
+comp.sys.mac.hardware:		 lciii duo se adb iisi mac centris lc powerbook quadra
+comp.windows.x:		 imake window xpert xlib server lcs xterm widget x11r5 motif
+misc.forsale:		 excellent distribution sell interested wanted condition offer shipping forsale sale
+rec.autos:		 engine toyota organization chevrolet dumbest car subject dealer warning automotive
+rec.motorcycles:		 kawasaki helmet motorcycle moa bmw organization motorcycles bike bikes dod
+rec.sport.baseball:		 pitching jewish braves erickson alomar uniforms organization lines subject phillies
+rec.sport.hockey:		 ulf playoffs playoff islanders subject pens organization leafs nhl hockey
+sci.crypt:		 code escrow wiretap des cryptography encryption crypto pgp tapped clipper
+sci.electronics:		 2600 lines detectors adcom exploding rf 256k 8051 circuit electronics
+sci.med:		 eugenics superstition lines organization dyer seizures subject krillean barbecued msg
+sci.space:		 lines egalon dc subject space prb dietz vandalizing sci orbit
+soc.religion.christian:		 christianity hell sin scripture organization mussack jeesus arrogance lines subject
+talk.politics.guns:		 backcountry militia gun rkba firearms dividian subject batf atf waco
+talk.politics.mideast:		 nysernet organization israeli zionism adl subject armenia serdar argic armenians
+talk.politics.misc:		 vat drieux optilink lines percentage deane organization concentrate kaldis subject
+talk.religion.misc:		 weiss organization koresh biblical tyre lds 2000 morality 666 rosicrucian
+Crime:		 crooks prosecution oakland gunfire fugitive scammers tsarnaev inmate allegedly shooter
+Entertainment:		 britney gadot masterchef brangelina chattman dwayne liars khloe cgi trailer
+World news:		 pm roundup saudi venezuela bahrain korea duterte rohingya migrants aleppo
+Impact:		 aspenideas maternal hunger malawi charity nonprofits homeless aspen trafficking homelessness
+Politics:		 rubio polling senate gop jeb mcconnell democrats huffpollster trump tomdispatch
+Weird news:		 redditors weirdo snake masturbator stonie alligator ufos ufo fark hydraulic
+Groups voices:		 lesbian black transgender latino lgbt latinos trans lgbtq gay queer
+Women:		 anita mcgorry steinem feminist sexism sexist metoo women abortion feminism
+Comedy:		 psychometer kimmel spoof comedians oliver snl conan colbert trevor maher
+Sports:		 espn ncaa clippers colts redskins kobe yankees lebron nfl mlb
+Business & finances:		 banks credit marketers onboarding prepaid marketing jpmorgan business stocks krugman
+Travel:		 airlines getaways hotel steves hotels traveler travelers tsa looney travel
+Media:		 newspaper brokaw journalists politico cnn media maddow reporters journalism gawker
+Science & tech:		 telescope pluto nasa apple iss samsung astronomers meteor scientists microsoft
+Religion:		 faith islamophobia archbishop religion interfaith religious pope theological evangelicals bishops
+Education:		 pearson charter college campus internship university fraternity colleges frat education
+Parenting:		 daughter motherhood baby postpartum toddler mommy kids dadmissions parenting breastfeeding
+Arts & culture:		 rowling artists opera art theatre exhibition arts artist nighter imageblog
+Style & beauty:		 lipstick q10 outfit beauty skincare makeup wardrobe stylelist style fashion
+Environment:		 wildfire elephants environmental animal fracking exxonmobil meatless earth911 climate networx
+Food & drink:		 culinary quinoa cronut fieri locavore wines recipe tastemakers cocktails recipes
+Wellness:		 fitness sleep healthiest superfoods icymi workouts quietrev workout gps fearless
+Miscellaneous:		 paralyzed retirement lbl aging grownups boomers grandkids midlifers midlife boomer
+Home & living:		 remove photos homes printable sprout repurposing home decor craft appraises
+Divorce:		 custody divorces cheating breakup alimony blended ex divorcing divorced divorce
+Weddings:		 marrying engagement proposals proposal marriage brides bridal bride weddings wedding
