@@ -41,6 +41,9 @@ When the user input is "I do not like robots", then the output will be about an 
 
 ![I don't like Robots](https://user-images.githubusercontent.com/56243454/81629729-2d310e80-9447-11ea-9087-155ad038d880.png)
 
+## Database management system
+The system's database is redesigned with UserFeedback table newly created in order to store user's editing and rating for future training and testing materials
+
 
 
 
